@@ -8,6 +8,7 @@ import AppHeader from './components/AppHeader';
 import Dashboard from './pages/Dashboard';
 import Settings from './pages/Settings';
 import History from './pages/History';
+import ComputerVision from './pages/ComputerVision';
 
 const theme = createTheme({
   palette: {
@@ -53,6 +54,7 @@ function App() {
             />
             <Route path="/settings" element={<Settings />} />
             <Route path="/history" element={<History />} />
+            <Route path="/computer-vision" element={<ComputerVision />} />
           </Routes>
         </Container>
       </Router>

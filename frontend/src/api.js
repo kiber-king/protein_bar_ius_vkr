@@ -34,4 +34,10 @@ export const getActiveSetting = () => api.get('/settings/active/');
 export const getNotifications = () => api.get('/notifications/');
 export const markAllRead = () => api.post('/notifications/mark_all_read/');
 
+// Компьютерное зрение API
+export const getVisionData = (batchId) => api.get('/computer-vision/', { params: { batch_id: batchId } });
+export const startCamera = () => api.post('/computer-vision/start_camera/');
+export const stopCamera = () => api.post('/computer-vision/stop_camera/');
+export const processFrame = () => api.post('/computer-vision/process_frame/');
+
 export default api; 

@@ -8,6 +8,7 @@ import Button from '@mui/material/Button';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import SettingsIcon from '@mui/icons-material/Settings';
 import HistoryIcon from '@mui/icons-material/History';
+import VideocamIcon from '@mui/icons-material/Videocam';
 
 const AppHeader = () => {
   const location = useLocation();
@@ -36,6 +37,24 @@ const AppHeader = () => {
             }}
           >
             Панель управления
+          </Button>
+          
+          <Button
+            component={Link}
+            to="/computer-vision"
+            color="inherit"
+            startIcon={<VideocamIcon />}
+            sx={{ 
+              mx: 1, 
+              color: location.pathname === '/computer-vision' ? '#ffffff' : 'rgba(255, 255, 255, 0.7)',
+              borderBottom: location.pathname === '/computer-vision' ? '2px solid white' : 'none',
+              borderRadius: 0,
+              '&:hover': {
+                borderBottom: '2px solid white',
+              }
+            }}
+          >
+            Компьютерное зрение
           </Button>
           
           <Button

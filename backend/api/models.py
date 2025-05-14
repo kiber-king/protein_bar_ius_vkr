@@ -82,4 +82,21 @@ class Notification(models.Model):
     class Meta:
         verbose_name = 'Уведомление'
         verbose_name_plural = 'Уведомления'
+        ordering = ['-timestamp']
+
+class ComputerVisionData(models.Model):
+    """Модель для данных компьютерного зрения"""
+    batch = models.ForeignKey(Batch, on_delete=models.CASCADE, related_name='vision_data', verbose_name='Партия')
+    image_path = models.TextField(blank=True, null=True, verbose_name='Путь к изображению')
+    detected_objects = models.JSONField(default=dict, verbose_name='Обнаруженные объекты')
+    confidence_score = models.FloatField(default=0.0, verbose_name='Оценка достоверности')
+    timestamp = models.DateTimeField(default=timezone.now, verbose_name='Время фиксации')
+    is_defect = models.BooleanField(default=False, verbose_name='Обнаружен дефект')
+    
+    def __str__(self):
+        return f"Данные компьютерного зрения для партии {self.batch.batch_number} - {self.timestamp}"
+    
+    class Meta:
+        verbose_name = 'Данные компьютерного зрения'
+        verbose_name_plural = 'Данные компьютерного зрения'
         ordering = ['-timestamp'] 
